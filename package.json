@@ -1,0 +1,71 @@
+{
+  "name": "@lipemat/js-helpers",
+  "version": "1.0.0",
+  "description": "Framework-agnostic TypeScript helper utilities used across @lipemat projects",
+  "author": "Mat Lipe",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.21.1"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "helpers",
+    "utilities",
+    "typescript",
+    "debounce",
+    "throttle",
+    "memoize"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lipemat/js-helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lipemat/js-helpers/issues"
+  },
+  "homepage": "https://github.com/lipemat/js-helpers#readme",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint ./src --fix --cache",
+    "postinstall": "test -f ./dev/bin/npm-post-install && bash ./dev/bin/npm-post-install || true",
+    "prepublishOnly": "rm -rf dist/* && yarn run build",
+    "test": "jest",
+    "validate-ts": "tsc --noEmit",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.5",
+    "@babel/preset-env": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@lipemat/eslint-config": "^5.2.0",
+    "@testing-library/dom": "^10.4.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.19.3",
+    "babel-jest": "^30.2.0",
+    "eslint": "^9",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "yarn@4.17.0"
+}

@@ -1,0 +1,27 @@
+# Output
+/dist
+
+# Caches
+.eslintcache
+
+# system/hidden files
+*.bak
+*.map
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Yarn Berry files
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+install-state.gz
+node_modules
+
+# keep files (must be last).
+!.gitkeep
+!.keep
