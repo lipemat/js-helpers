@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# ~~ mklink E:\SVN\the-boilerplate\.git\modules\packages\js-helpers\hooks\pre-commit E:\SVN\the-boilerplate\packages\js-helpers\git-hooks\pre-commit
+
 source /e/scripts/git/hooks/version-1/setup-colors || exit 1
 
 function js_build() {
@@ -32,7 +34,7 @@ type_check &
 
 function js_lint() {
     echo "${YELLOW}[pre-commit]${BLUE} Running JS Lint... ${WHITE}"
-    OUTPUT=$(yarn eslint ./src --fix=false 2>&1)
+    OUTPUT=$(yarn lint --fix=false 2>&1)
     if [[ $? != 0 ]]; then
         echo
         echo "${BLUE}JS Lint failed. Fix the error before commit!"

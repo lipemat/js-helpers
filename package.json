@@ -41,7 +41,6 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint ./src --fix --cache",
-    "postinstall": "test -f ./dev/bin/npm-post-install && bash ./dev/bin/npm-post-install || true",
     "prepublishOnly": "rm -rf dist/* && yarn run build",
     "test": "jest",
     "validate-ts": "tsc --noEmit",
