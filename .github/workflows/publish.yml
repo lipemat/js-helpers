@@ -21,10 +21,6 @@ permissions:
 jobs:
   publish:
     name: Publish on npm.js
-    permissions:
-      actions: read
-      id-token: write
-      contents: read
     uses: lipemat/public-actions/.github/workflows/publish-package.yml@version/2
     with:
       beta: ${{ contains(github.ref_name, 'beta') }}

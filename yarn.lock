@@ -2269,7 +2269,11 @@ __metadata:
     react-dom: "npm:^19.2.7"
     typescript: "npm:^5.9.3"
   peerDependencies:
+    react: ">=18"
     typescript: ^5.9.3
+  peerDependenciesMeta:
+    react:
+      optional: true
   languageName: unknown
   linkType: soft
 
