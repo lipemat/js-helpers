@@ -46,7 +46,7 @@ import {useMobile, useAsync} from '@lipemat/js-helpers/react';
 | `isDesktop`, `isMobile`, `hasMobileUserAgent`              | Detect desktop vs mobile clients.                     | [device](./src/device/Readme.md)             |
 | `domReady`                                                 | Run a callback once the DOM is ready.                 | [dom-ready](./src/dom-ready/Readme.md)       |
 | `ErrorWithFields`                                          | `Error` subclass carrying per-field messages.         | [error](./src/error/Readme.md)               |
-| `decodeEntities`                                           | Decode HTML entities in a string.                     | [escaping](./src/escaping/Readme.md)         |
+| `decodeEntities`, `stripTags`                              | Decode HTML entities or strip HTML tags from a string. | [escaping](./src/escaping/Readme.md)        |
 | `injectScript`                                             | Inject an external script into the DOM once.          | [injectScript](./src/injectScript/Readme.md) |
 | `memoize`                                                  | Lodash-free memoization with an inspectable cache.    | [memoize](./src/memoize/Readme.md)           |
 | `noop`                                                     | A no-operation function.                              | [noop](./src/noop/Readme.md)                 |

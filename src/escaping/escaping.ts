@@ -39,3 +39,14 @@ export function decodeEntities( html: string ) {
 	_decodeTextArea.innerHTML = '';
 	return ( decoded );
 }
+
+/**
+ * Strip all HTML tags from a string.
+ *
+ * Uses DOMPurify to remove every tag while keeping the text content.
+ *
+ * @param html
+ */
+export function stripTags( html: string ): string {
+	return DOMPurify.sanitize( html, {ALLOWED_TAGS: [], ALLOWED_ATTR: []} );
+}
