@@ -1,7 +1,7 @@
 ##########################################################
 # Publish on npm.js
 #
-# @version 5.0.0
+# @version 5.0.1
 #
 ###########################################################
 
@@ -13,9 +13,18 @@ on:
     tags:
       - "*"
 
+permissions:
+  actions: read
+  id-token: write
+  contents: read
+
 jobs:
   publish:
     name: Publish on npm.js
+    permissions:
+      actions: read
+      id-token: write
+      contents: read
     uses: lipemat/public-actions/.github/workflows/publish-package.yml@version/2
     with:
       beta: ${{ contains(github.ref_name, 'beta') }}
