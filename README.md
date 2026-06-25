@@ -49,6 +49,14 @@ import {debounce, hexToRGB, domReady} from '@lipemat/js-helpers';
 | `generateRandomKey`, `add`/`removeLeading`/`TrailingSlash` | Random keys and slash management.                     | [string](./src/string/Readme.md)             |
 | `throttle`                                                 | Lodash-free throttle with `immediate` and `cancel`.   | [throttle](./src/throttle/Readme.md)         |
 | `getUrlParam`, `addQueryArgs`                              | Read and append URL query arguments.                  | [url](./src/url/Readme.md)                   |
+| `useAsync`                                                 | Run an async function and track its loading state.    | [useAsync](./src/useAsync/Readme.md)         |
+| `useDebounce`                                              | Debounce a value for use as an effect dependency.     | [useDebounce](./src/useDebounce/Readme.md)   |
+| `useDebouncedInput`                                        | Manage an input value alongside a debounced copy.     | [useDebouncedInput](./src/useDebouncedInput/Readme.md) |
+| `useEffectOnce`                                            | Run an effect a single time on mount.                 | [useEffectOnce](./src/useEffectOnce/Readme.md) |
+| `useEffectOnChange`                                        | Run an effect on dependency change, skipping mount.   | [useEffectOnChange](./src/useEffectOnChange/Readme.md) |
+| `useMobile`                                                | Track whether the client is a mobile device.          | [useMobile](./src/useMobile/Readme.md)       |
+
+> The `use*` helpers are React hooks and require React `>=18` (declared as an optional peer dependency). All other helpers are framework-agnostic.
 
 ## Development
 
