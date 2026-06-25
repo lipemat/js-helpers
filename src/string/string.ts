@@ -1,8 +1,4 @@
 /**
- * @notice More robust versions are available from the `@lipemat/js-boilerplate-gutenberg` package.
- */
-
-/**
  * Generate a random key of a given length.
  *
  * @version 1.0.0
