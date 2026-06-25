@@ -9,7 +9,9 @@
 - Each helper lives in its own directory under `src/<helper>/`.
   - `src/<helper>/<helper>.ts` — the implementation. The file is named after the helper, never `index.ts`.
   - `src/<helper>/Readme.md` — the helper's documentation.
-- `src/index.ts` is the barrel. Every helper directory must be re-exported here with an explicit `.js` extension, e.g. `export * from './debounce/debounce.js';`.
+- `src/index.ts` is the root barrel for framework-agnostic helpers. Every non-React helper directory must be re-exported here with an explicit `.js` extension, e.g. `export * from './debounce/debounce.js';`.
+- `src/react.ts` is the React barrel exposed at the `@lipemat/js-helpers/react` subpath. Every helper that imports `react` (the `use*` hooks) must be re-exported here instead of `src/index.ts`, so the package root never loads React. Consumers import hooks with `import {useMobile} from '@lipemat/js-helpers/react'`.
+- Subpath exports are declared in the `exports` map in `package.json` (`.` -> `dist/index.js`, `./react` -> `dist/react.js`).
 - Tests live in `jest/tests/<helper>.test.ts`, one suite per helper.
 - Internal cross-helper imports use a relative path with a `.js` extension that resolves to the `.ts` source (NodeNext + `verbatimModuleSyntax`), e.g. `import type {Callback} from '../once/once.js';`.
 
@@ -27,7 +29,7 @@ Keep the prose concise, use single quotes in code samples, and match the existin
 ## How to add a new helper
 1. Create `src/<helper>/<helper>.ts` and implement the helper. Export only the public API. Reuse `Callback`/`Return` from `src/once/once.ts` for function-shape types where appropriate.
 2. Use `.js` extensions on every relative import, including imports of other helpers (`'../once/once.js'`).
-3. Add `export * from './<helper>/<helper>.js';` to `src/index.ts`. Confirm the new exports do not collide with existing barrel exports.
+3. Re-export the new helper from the correct barrel: add `export * from './<helper>/<helper>.js';` to `src/index.ts` for framework-agnostic helpers, or to `src/react.ts` for helpers that import `react`. Confirm the new exports do not collide with existing barrel exports.
 4. Write `src/<helper>/Readme.md` following the **How to document a helper** rules above.
 5. Add a `jest/tests/<helper>.test.ts` suite that exercises the real implementation (never mock the subject under test).
 6. Add the helper to the table in the root `README.md` with a one-line description linking to its `Readme.md`.

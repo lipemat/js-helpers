@@ -19,7 +19,7 @@ Returns `[ value, setValue, debouncedValue ]`.
 ## Usage
 
 ```ts
-import {useDebouncedInput} from '@lipemat/js-helpers';
+import {useDebouncedInput} from '@lipemat/js-helpers/react';
 
 function Search() {
 	const [ term, setTerm, debouncedTerm ] = useDebouncedInput( '', 500 );

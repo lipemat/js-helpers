@@ -18,7 +18,7 @@ Returns the debounced value.
 
 ```ts
 import {useState} from 'react';
-import {useDebounce} from '@lipemat/js-helpers';
+import {useDebounce} from '@lipemat/js-helpers/react';
 
 function Search() {
 	const [ term, setTerm ] = useState( '' );

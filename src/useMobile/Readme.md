@@ -15,7 +15,7 @@ Returns `{ isMobile }`, kept in sync with the viewport via a debounced `resize` 
 ## Usage
 
 ```ts
-import {useMobile} from '@lipemat/js-helpers';
+import {useMobile} from '@lipemat/js-helpers/react';
 
 function Layout() {
 	const {isMobile} = useMobile();

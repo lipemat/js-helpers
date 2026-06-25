@@ -25,7 +25,7 @@ Returns an object with `execute()`, `status`, `value`, `error`, and `loading`.
 ## Usage
 
 ```ts
-import {useAsync} from '@lipemat/js-helpers';
+import {useAsync} from '@lipemat/js-helpers/react';
 
 function Profile() {
 	const {value, loading, error} = useAsync( () => fetch( '/api/me' ).then( r => r.json() ) );

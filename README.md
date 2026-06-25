@@ -21,10 +21,16 @@ npm install @lipemat/js-helpers
 
 ## Usage
 
-Every helper is importable from the package root:
+Every framework-agnostic helper is importable from the package root:
 
 ```ts
 import {debounce, hexToRGB, domReady} from '@lipemat/js-helpers';
+```
+
+React hooks live under a separate subpath so the package root never loads React:
+
+```ts
+import {useMobile, useAsync} from '@lipemat/js-helpers/react';
 ```
 
 ## Helpers
@@ -56,7 +62,7 @@ import {debounce, hexToRGB, domReady} from '@lipemat/js-helpers';
 | `useEffectOnChange`                                        | Run an effect on dependency change, skipping mount.   | [useEffectOnChange](./src/useEffectOnChange/Readme.md) |
 | `useMobile`                                                | Track whether the client is a mobile device.          | [useMobile](./src/useMobile/Readme.md)       |
 
-> The `use*` helpers are React hooks and require React `>=18` (declared as an optional peer dependency). All other helpers are framework-agnostic.
+> The `use*` helpers are React hooks imported from `@lipemat/js-helpers/react` and require React `>=18` (declared as an optional peer dependency). All other helpers are framework-agnostic and importable from the package root.
 
 ## Development
 

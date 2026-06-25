@@ -12,7 +12,7 @@ React hook that works like `useEffect` but skips the initial render, only runnin
 ## Usage
 
 ```ts
-import {useEffectOnChange} from '@lipemat/js-helpers';
+import {useEffectOnChange} from '@lipemat/js-helpers/react';
 
 function Filter( {taxonomy} ) {
 	useEffectOnChange( () => {

@@ -1,8 +1,11 @@
 /**
  * Public entry point for `@lipemat/js-helpers`.
  *
- * Re-exports the public API of every helper so consumers can use
- * `import {<helper>} from '@lipemat/js-helpers'`.
+ * Re-exports the public API of every framework-agnostic helper so consumers
+ * can use `import {<helper>} from '@lipemat/js-helpers'`.
+ *
+ * React hooks are intentionally excluded here to avoid loading React when it
+ * is not needed. Import them from `@lipemat/js-helpers/react` instead.
  */
 export * from './classes/classes.js';
 export * from './colors/colors.js';
@@ -22,9 +25,3 @@ export * from './once/once.js';
 export * from './string/string.js';
 export * from './throttle/throttle.js';
 export * from './url/url.js';
-export * from './useAsync/useAsync.js';
-export * from './useDebounce/useDebounce.js';
-export * from './useDebouncedInput/useDebouncedInput.js';
-export * from './useEffectOnce/useEffectOnce.js';
-export * from './useEffectOnChange/useEffectOnChange.js';
-export * from './useMobile/useMobile.js';

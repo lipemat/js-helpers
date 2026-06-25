@@ -11,7 +11,7 @@ React hook that works like `useEffect` but runs its callback a single time on mo
 ## Usage
 
 ```ts
-import {useEffectOnce} from '@lipemat/js-helpers';
+import {useEffectOnce} from '@lipemat/js-helpers/react';
 
 function Analytics() {
 	useEffectOnce( () => {
