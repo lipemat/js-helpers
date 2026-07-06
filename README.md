@@ -54,7 +54,7 @@ import {useMobile, useAsync} from '@lipemat/js-helpers/react';
 | `once`                                                     | Run a function a single time and cache the result.    | [once](./src/once/Readme.md)                 |
 | `generateRandomKey`, `add`/`removeLeading`/`TrailingSlash` | Random keys and slash management.                     | [string](./src/string/Readme.md)             |
 | `throttle`                                                 | Lodash-free throttle with `immediate` and `cancel`.   | [throttle](./src/throttle/Readme.md)         |
-| `getUrlParam`, `addQueryArgs`                              | Read and append URL query arguments.                  | [url](./src/url/Readme.md)                   |
+| `getUrlParam`, `getQueryArg`, `getQueryArgs`, `getQueryString`, `addQueryArgs`, `getFragment`, `buildQueryString` | Read and append URL query arguments. | [url](./src/url/Readme.md)                   |
 | `useAsync`                                                 | Run an async function and track its loading state.    | [useAsync](./src/useAsync/Readme.md)         |
 | `useDebounce`                                              | Debounce a value for use as an effect dependency.     | [useDebounce](./src/useDebounce/Readme.md)   |
 | `useDebouncedInput`                                        | Manage an input value alongside a debounced copy.     | [useDebouncedInput](./src/useDebouncedInput/Readme.md) |
