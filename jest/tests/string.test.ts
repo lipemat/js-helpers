@@ -1,10 +1,4 @@
-import {
-	addLeadingSlash,
-	addTrailingSlash,
-	generateRandomKey,
-	removeLeadingSlash,
-	removeTrailingSlash,
-} from '../../src/string/string';
+import {addLeadingSlash, addTrailingSlash, generateRandomKey, normalizePath, removeLeadingSlash, removeTrailingSlash,} from '../../src/index.js';
 
 describe( 'string', () => {
 	describe( 'generateRandomKey', () => {
@@ -40,6 +34,11 @@ describe( 'string', () => {
 		} );
 
 
+		it( 'normalizes backslashes to forward slashes', () => {
+			expect( addLeadingSlash( 'foo\\bar' ) ).toBe( '/foo/bar' );
+		} );
+
+
 		it( 'returns the original value when empty', () => {
 			expect( addLeadingSlash( '   ' ) ).toBe( '   ' );
 		} );
@@ -54,6 +53,11 @@ describe( 'string', () => {
 
 		it( 'does not double a trailing slash', () => {
 			expect( addTrailingSlash( 'foo/bar/' ) ).toBe( 'foo/bar/' );
+		} );
+
+
+		it( 'normalizes backslashes to forward slashes', () => {
+			expect( addTrailingSlash( 'foo\\bar' ) ).toBe( 'foo/bar/' );
 		} );
 
 
@@ -72,6 +76,11 @@ describe( 'string', () => {
 		it( 'leaves the value untouched when no leading slash', () => {
 			expect( removeLeadingSlash( 'foo/bar' ) ).toBe( 'foo/bar' );
 		} );
+
+
+		it( 'normalizes backslashes to forward slashes', () => {
+			expect( removeLeadingSlash( '/foo\\bar' ) ).toBe( 'foo/bar' );
+		} );
 	} );
 
 
@@ -83,6 +92,23 @@ describe( 'string', () => {
 
 		it( 'leaves the value untouched when no trailing slash', () => {
 			expect( removeTrailingSlash( 'foo/bar' ) ).toBe( 'foo/bar' );
+		} );
+
+
+		it( 'normalizes backslashes to forward slashes', () => {
+			expect( removeTrailingSlash( 'foo\\bar/' ) ).toBe( 'foo/bar' );
+		} );
+	} );
+
+
+	describe( 'normalizePath', () => {
+		it( 'replaces backslashes with forward slashes', () => {
+			expect( normalizePath( 'foo\\bar\\baz' ) ).toBe( 'foo/bar/baz' );
+		} );
+
+
+		it( 'leaves forward slashes untouched', () => {
+			expect( normalizePath( 'foo/bar/baz' ) ).toBe( 'foo/bar/baz' );
 		} );
 	} );
 } );
