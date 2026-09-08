@@ -1,4 +1,4 @@
-import {addQueryArgs, buildQueryString, getFragment, getQueryArg, getQueryArgs, getQueryString, getUrlParam, type QueryArgObject,} from '../../src/url/url';
+import {addQueryArgs, buildQueryString, getFragment, getQueryArg, getQueryArgs, getQueryString, getUrlParam, type QueryArgObject} from '../../src/url/url.js';
 
 
 describe( 'url', () => {
@@ -144,7 +144,7 @@ describe( 'url', () => {
 				null: null,
 				undefined,
 				zero: 0,
-			} as unknown as QueryArgObject;
+			} as QueryArgObject;
 
 			expect( buildQueryString( data ) ).toBe( 'empty=&null=&zero=0' );
 		} );
@@ -243,7 +243,7 @@ describe( 'url', () => {
 
 		it( 'disregards keys with undefined values', () => {
 			const url = 'https://andalouses.example/beach';
-			const args = {sun: 'true', sand: undefined} as unknown as QueryArgObject;
+			const args = {sun: 'true', sand: undefined} as QueryArgObject;
 
 			expect( addQueryArgs( url, args ) ).toBe(
 				'https://andalouses.example/beach?sun=true'

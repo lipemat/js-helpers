@@ -1,4 +1,4 @@
-import {addLeadingSlash, addTrailingSlash, generateRandomKey, normalizePath, removeLeadingSlash, removeTrailingSlash,} from '../../src/index.js';
+import {addLeadingSlash, addTrailingSlash, generateRandomKey, normalizePath, removeLeadingSlash, removeTrailingSlash} from '../../src/index.js';
 
 describe( 'string', () => {
 	describe( 'generateRandomKey', () => {

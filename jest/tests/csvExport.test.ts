@@ -1,4 +1,4 @@
-import {csvExport} from '../../src/csvExport/csvExport';
+import {csvExport} from '../../src/index.js';
 
 function readBlob( blob: Blob ): Promise<string> {
 	return new Promise( ( resolve, reject ) => {
@@ -17,7 +17,7 @@ describe( 'csvExport', () => {
 	beforeEach( () => {
 		createObjectURL = jest.fn( () => 'blob:mock-url' );
 		originalCreateObjectURL = URL.createObjectURL;
-		URL.createObjectURL = createObjectURL as unknown as typeof URL.createObjectURL;
+		URL.createObjectURL = createObjectURL as typeof URL.createObjectURL;
 		clickSpy = jest.spyOn( HTMLAnchorElement.prototype, 'click' ).mockImplementation( () => undefined );
 	} );
 
@@ -76,4 +76,3 @@ describe( 'csvExport', () => {
 		expect( await readBlob( blob ) ).toBe( 'name,city\n"Doe, John",NYC\n' );
 	} );
 } );
-

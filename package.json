@@ -44,7 +44,7 @@
   "homepage": "https://github.com/lipemat/js-helpers#readme",
   "scripts": {
     "build": "tsc",
-    "lint": "eslint ./src --fix --cache",
+    "lint": "eslint ./src ./jest --fix --cache",
     "prepublishOnly": "rm -rf dist/* && yarn run build",
     "test": "jest",
     "validate-ts": "tsc --noEmit",
