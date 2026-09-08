@@ -1,4 +1,5 @@
 import {act, renderHook} from '@testing-library/react';
+import {DEFAULT_BREAKPOINT, setMobileBreakpoint} from '../../src/device/device';
 import {useMobile} from '../../src/useMobile/useMobile';
 
 function setWidth( width: number ): void {
@@ -18,11 +19,13 @@ describe( 'useMobile', () => {
 	afterEach( () => {
 		jest.useRealTimers();
 		setWidth( 1024 );
+		setMobileBreakpoint( DEFAULT_BREAKPOINT );
 	} );
 
 
 	it( 'should initialize with the desktop state on a wide viewport', () => {
 		setWidth( 1024 );
+		setMobileBreakpoint( DEFAULT_BREAKPOINT );
 		const {result} = renderHook( () => useMobile() );
 		expect( result.current.isMobile ).toBe( false );
 	} );
@@ -37,6 +40,7 @@ describe( 'useMobile', () => {
 
 	it( 'should update the state when the window is resized to mobile', () => {
 		setWidth( 1024 );
+		setMobileBreakpoint( DEFAULT_BREAKPOINT );
 		const {result} = renderHook( () => useMobile() );
 		expect( result.current.isMobile ).toBe( false );
 
@@ -69,5 +73,37 @@ describe( 'useMobile', () => {
 		unmount();
 		expect( removeEventListenerSpy ).toHaveBeenCalledWith( 'resize', expect.any( Function ) );
 		removeEventListenerSpy.mockRestore();
+	} );
+
+
+	it( 'initializes from the configured breakpoint', () => {
+		setMobileBreakpoint( 1200 );
+		setWidth( 1024 );
+
+		const {result} = renderHook( () => useMobile() );
+
+		expect( result.current.isMobile ).toBe( true );
+	} );
+
+
+	it( 'resizes against the configured breakpoint', () => {
+		setMobileBreakpoint( 1200 );
+		setWidth( 1400 );
+		const {result} = renderHook( () => useMobile() );
+		expect( result.current.isMobile ).toBe( false );
+
+		act( () => {
+			setWidth( 1300 );
+			window.dispatchEvent( new Event( 'resize' ) );
+			jest.advanceTimersByTime( 50 );
+		} );
+		expect( result.current.isMobile ).toBe( false );
+
+		act( () => {
+			setWidth( 1100 );
+			window.dispatchEvent( new Event( 'resize' ) );
+			jest.advanceTimersByTime( 50 );
+		} );
+		expect( result.current.isMobile ).toBe( true );
 	} );
 } );

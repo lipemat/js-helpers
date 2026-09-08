@@ -43,7 +43,7 @@ import {useMobile, useAsync} from '@lipemat/js-helpers/react';
 | `getFormattedDate`                                         | Format a `Date` using `mm`/`dd`/`yyyy` tokens.        | [date](./src/date/Readme.md)                 |
 | `debounce`                                                 | Lodash-free debounce with `immediate` and `cancel`.   | [debounce](./src/debounce/Readme.md)         |
 | `delay`                                                    | Resolve a promise after a set amount of time.         | [delay](./src/delay/Readme.md)               |
-| `isDesktop`, `isMobile`, `hasMobileUserAgent`              | Detect desktop vs mobile clients.                     | [device](./src/device/Readme.md)             |
+| `isDesktop`, `isMobile`, `setMobileBreakpoint`             | Detect desktop vs mobile clients.                     | [device](./src/device/Readme.md)             |
 | `domReady`                                                 | Run a callback once the DOM is ready.                 | [dom-ready](./src/dom-ready/Readme.md)       |
 | `ErrorWithFields`                                          | `Error` subclass carrying per-field messages.         | [error](./src/error/Readme.md)               |
 | `decodeEntities`, `stripTags`                              | Decode HTML entities or strip HTML tags from a string. | [escaping](./src/escaping/Readme.md)        |

@@ -1,23 +1,42 @@
-const breakPoint = 800;
-
-
 /**
  * Detects if the user is on a desktop or mobile device.
- * - Desktop: Width greater than 800 px and not a mobile user agent.
- * - Mobile: Width less than 800 px or a mobile user agent.
+ * - Desktop: Width greater than the breakpoint and not a mobile user agent.
+ * - Mobile: Width up to and including the breakpoint, or a mobile user agent.
+ *
+ * Defaults to an 800px breakpoint, which projects may change via
+ * `setMobileBreakpoint`.
  *
  * @see useMobile - For keeping track of mobile state in React components.
  *
- * @version 2.0.2
+ * @version 3.0.0
  */
 
+export const DEFAULT_BREAKPOINT = 800;
+
+let mobileBreakpoint = DEFAULT_BREAKPOINT;
+
+
+/**
+ * Change the breakpoint used by `isDesktop`, `isMobile`, and `useMobile`.
+ *
+ * Call during bootstrap, before anything reads the device state, as already
+ * mounted React components do not re-render when the breakpoint changes.
+ * Pass `DEFAULT_BREAKPOINT` to restore the default.
+ */
+export function setMobileBreakpoint( width: number ): void {
+	mobileBreakpoint = width;
+}
+
+export function getMobileBreakpoint(): number {
+	return mobileBreakpoint;
+}
 
 export function isDesktop(): boolean {
-	return window.innerWidth > breakPoint && ! hasMobileUserAgent();
+	return window.innerWidth > mobileBreakpoint && ! hasMobileUserAgent();
 }
 
 export function isMobile(): boolean {
-	return window.innerWidth < breakPoint || hasMobileUserAgent();
+	return window.innerWidth <= mobileBreakpoint || hasMobileUserAgent();
 }
 
 /**

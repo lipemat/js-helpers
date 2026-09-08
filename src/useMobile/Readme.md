@@ -6,7 +6,7 @@ React hook that reports whether the current client is a mobile device, updating 
 
 ### `useMobile(): Mobile`
 
-Returns `{ isMobile }`, kept in sync with the viewport via a debounced `resize` listener.
+Returns `{ isMobile }`, kept in sync with the viewport via a debounced `resize` listener. Uses the breakpoint configured via `setMobileBreakpoint`.
 
 ### `type Mobile`
 
@@ -14,7 +14,7 @@ Returns `{ isMobile }`, kept in sync with the viewport via a debounced `resize` 
 
 ## Usage
 
-```ts
+```tsx
 import {useMobile} from '@lipemat/js-helpers/react';
 
 function Layout() {
@@ -26,3 +26,5 @@ function Layout() {
 ## Notes
 
 Requires React (`>=18`) as a peer dependency. Requires `window`; intended for browser use. User-agent changes are not polled — only resize events update the state.
+
+A `setMobileBreakpoint` call does not re-render mounted components. Set the project breakpoint during bootstrap.
