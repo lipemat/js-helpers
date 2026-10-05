@@ -19,6 +19,9 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "strict": true,
+    "types": [
+      "node"
+    ],
     "verbatimModuleSyntax": true
   },
   "include": [

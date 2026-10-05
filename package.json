@@ -57,7 +57,7 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
-    "@lipemat/eslint-config": "^5.2.0",
+    "@lipemat/eslint-config": "^5.6.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
@@ -70,11 +70,11 @@
     "jest-environment-jsdom": "^30.2.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "react": ">=18",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   },
   "peerDependenciesMeta": {
     "react": {
